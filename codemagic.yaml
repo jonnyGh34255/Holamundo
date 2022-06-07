@@ -23,9 +23,7 @@ workflows:
   script: flutter analyze
   - name: Flutter unit tests
   script: flutter test
-  # Build debug iOS .app
-- name: Build debug iOS app
-  script: flutter build ios --debug --no-codesign
+
 
   
     artifacts:
