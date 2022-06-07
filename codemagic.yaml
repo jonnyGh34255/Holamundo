@@ -16,6 +16,18 @@ workflows:
         script: find . -name "Podfile" -execdir pod install \;
       - name: Build debug iOS app
         script: flutter build ios --debug --no-codesign
+      
+      - name: Get Flutter packages
+  script: flutter packages pub get
+  - name: Flutter analyze
+  script: flutter analyze
+  - name: Flutter unit tests
+  script: flutter test
+  # Build debug iOS .app
+- name: Build debug iOS app
+  script: flutter build ios --debug --no-codesign
+
+  
     artifacts:
       - build/**/outputs/**/mapping.txt
       - build/ios/ipa/*.ipa
