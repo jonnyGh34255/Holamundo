@@ -17,15 +17,21 @@ workflows:
       - name: Build debug iOS app
         script: flutter build ios --debug --no-codesign
       
+      - name: Build debug apk
+  script: flutter build apk --debug
       - name: Get Flutter packages
   script: flutter packages pub get
   - name: Flutter analyze
   script: flutter analyze
   - name: Flutter unit tests
   script: flutter test
+  # For Android
+artifacts:
+  - build/**/outputs/**/*.apk
+  - build/**/outputs/**/*.aab
+  - build/**/outputs/**/mapping.txt
+  - flutter_drive.log
 
-
-  
     artifacts:
       - build/**/outputs/**/mapping.txt
       - build/ios/ipa/*.ipa
